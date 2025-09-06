@@ -1,4 +1,4 @@
-name: Sync ceph Application
+name: Sync local-storage-provisioner Application
 on:
   push:
     branches:
@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 jobs:
   sync:
-    runs-on: chris-pc-ceph
+    runs-on: chris-pc-local-storage-provisioner
     steps:
       - name: Install ArgoCD CLI
         run: |
@@ -26,4 +26,4 @@ jobs:
           argocd login ${{ secrets.ARGOCD_SERVER }} --username ${{ secrets.ARGOCD_USERNAME }} --password ${{ secrets.ARGOCD_PASSWORD }} --insecure --plaintext
 
       - name: Sync ArgoCD Applications
-        run: argocd app sync argocd/ceph
+        run: argocd app sync argocd/local-storage-provisioner
