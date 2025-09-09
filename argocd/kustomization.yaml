@@ -14,3 +14,4 @@ namespace: local-storage-provisioner
 
 resources:
   - local-storage-storageclass.yaml
+  - namespace.yaml
